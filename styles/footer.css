@@ -1,0 +1,10 @@
+/* mise en page du footer. */
+.footer
+{
+    display: flex;
+    background-color: beige;
+    text-align: center;
+    justify-content: center;
+    padding: 25px;
+    
+}
