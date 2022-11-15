@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Document</title>
+        <link rel="stylesheet" href="./styles/header.css">
+        <link rel="stylesheet" href="./styles/body.css">
+        <link rel="stylesheet" href="./styles/footer.css">
+        <link rel="stylesheet" href="./styles/modal.css">
+    </head>
+    <body>
+        <div>
+            <header>
+                <div class="logo">
+                    <img src="./logo.png" class="image_logo" >
+                </div>
+                <nav class="nav">
+                    <ul class="menue">
+                        <li><a href="#index.html">Accueil</a></li>
+                        <li><a href="#categorie.html">Catégories</a></li>
+                    </ul>
+                </nav>
+            </header>
+                <h1>Meilleur film</h1><!-- Start of the best movie display  -->
+            <div class="bestMovie" id="bestMovie">
+                <a href="#"><img id="bestMovieImg" src=""></a>
+                <span class="titleBestMovie" id="bestMovieTitle"></span>
+                <p id="bestMovieDescription"></p>
+                <button class="bestMovieBtn" id="myBtn">Lecture</button>
+            </div>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <div class="parameter">
+                            <ul>
+                                <img id="bestMovieImg1" src="">
+                                <li id="title"></li>
+                                <li id="genres"></li>
+                                <li id="date_published"></li>
+                                <li id="rated"></li><br>
+                                <li id="imdb_score"></li>
+                                <li id="directors"></li>
+                                <li id="actors"></li>
+                                <li id="duration"></li>
+                                <li id="countries"></li>
+                                <li id="worldwide_gross_income"></li>
+                                <li id="description"></li>
+                            </ul>
+                        </div><!-- End of the best movie display  -->
+                    </div>
+                </div>
+                <hr/>
+                <h2>Films les mieux notés</h2>
+            <div class="grid-container"><!-- Start of the 7 top rated movies display  -->
+                <div class="slideshow-container">
+                    <div class="grid-item">
+                        <div class="mySlides">
+                            <span class="title" id="titleTopRatedMovie1"></span>
+                            <img id="topRatedMovie1" src="">
+                        </div>
+                    </div>
+                    <div class="mySlides">
+                        <div class="grid-item">
+                            <span class="title" id="titleTopRatedMovie2"></span>
+                            <img id="topRatedMovie2" src="">
+                        </div>
+                    </div>
+                    <div class="mySlides">
+                        <div class="grid-item">
+                            <span class="title" id="titleTopRatedMovie3"></span>
+                            <img id="topRatedMovie3" src="">
+                        </div>
+                    </div>
+                    <div class="mySlides">
+                        <div class="grid-item">
+                            <span class="title" id="titleTopRatedMovie4"></span>
+                            <img id="topRatedMovie4" src="">
+                        </div>
+                    </div>
+                    <div class="mySlides">
+                        <div class="grid-item">
+                            <span class="title" id="titleTopRatedMovie5"></span>
+                            <img id="topRatedMovie5" src="">
+                        </div>
+                    </div>
+                    <div class="mySlides">
+                        <div class="grid-item">
+                            <span class="title" id="titleTopRatedMovie6"></span>
+                            <img id="topRatedMovie6" src="">
+                        </div>
+                    </div>
+                    <div class="mySlides">
+                        <div class="grid-item">
+                            <span class="title" id="titleTopRatedMovie7"></span>
+                            <img id="topRatedMovie7" src="">
+                        </div>
+                    </div>
+                    <!-- Next and previous buttons -->
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+            </div><!-- End of the top rated movies display  -->
+        
+            <br>
+            <hr/>
+            <h2>Commédie</h2>
+            <div class="grid-container" id="bestComedyMovies"><!-- Start of the 7 best movies comedy display  -->
+                <div class="grid-item">
+                    <span class="title" id="titleBestComedyMovies1"></span>
+                    <img id="BestComedyMovies1" src="">
+                </div>
+                <div class="grid-item">
+                    <span class="title" id="titleBestComedyMovies2"></span>
+                    <img id="BestComedyMovies2" src="">
+                </div>
+                <div class="grid-item">
+                    <span class="title" id="titleBestComedyMovies3"></span>
+                    <img id="BestComedyMovies3" src="">
+                </div>
+                <div class="grid-item">
+                    <span class="title" id="titleBestComedyMovies4"></span>
+                    <img id="BestComedyMovies4" src="">
+                </div>
+                <div class="grid-item">
+                    <span class="title" id="titleBestComedyMovies5"></span>
+                    <img id="BestComedyMovies5" src="">
+                </div>
+                <div class="grid-item">
+                    <span class="title" id="titleBestComedyMovies6"></span>
+                    <img id="BestComedyMovies6" src="">
+                </div>
+                <div class="grid-item">
+                    <span class="title" id="titleBestComedyMovies7"></span>
+                    <img id="BestComedyMovies7" src="">
+                </div>
+            </div><!-- End of the 7 best movies comedy display  -->
+            <hr/>
+            <h2>Dramatique</h2><!-- Start of the 7 best movies dramatic display  -->
+            <div class="grid-container" id="bestDramaticMovies">
+                <div class="grid-item">
+                    <span class="title" id="titlebestDramaticMovies1"></span>
+                    <img id="bestDramaticMovies1" src="">
+                </div>
+                <div class="grid-item">
+                    <span class="title" id="titlebestDramaticMovies2"></span>
+                    <img id="bestDramaticMovies2" src="">
+                </div>
+                <div class="grid-item">
+                    <span class="title" id="titlebestDramaticMovies3"></span>
+                    <img id="bestDramaticMovies3" src="">
+                </div>
+                <div class="grid-item">
+                    <span class="title" id="titlebestDramaticMovies4"></span>
+                    <img id="bestDramaticMovies4" src="">
+                </div>
+                <div class="grid-item">
+                    <span class="title" id="titlebestDramaticMovies5"></span>
+                    <img id="bestDramaticMovies5" src="">
+                </div>
+                <div class="grid-item">
+                    <span class="title" id="titlebestDramaticMovies6"></span>
+                    <img id="bestDramaticMovies6" src="">
+                </div>
+                <div class="grid-item">
+                    <span class="title" id="titlebestDramaticMovies7"></span>
+                    <img id="bestDramaticMovies7" src="">
+                </div>
+            </div><!-- End of the 7 best movies dramatic display  -->
+            <hr/>
+            <h2>Animation</h2><!-- Start of the 7 best movies animation display  -->
+            <div class="grid-container" id="bestAnimationMovies">
+                <div class="grid-item">
+                    <span class="title" id="titlebestAnimationMovies1"></span>
+                    <img id="bestAnimationMovies1" src="">
+                </div>
+                <div class="grid-item">
+                    <span class="title" id="titlebestAnimationMovies2"></span>
+                    <img id="bestAnimationMovies2" src="">
+                </div>
+                <div class="grid-item">
+                    <span class="title" id="titlebestAnimationMovies3"></span>
+                    <img id="bestAnimationMovies3" src="">
+                </div>
+                <div class="grid-item">
+                    <span class="title" id="titlebestAnimationMovies4"></span>
+                    <img id="bestAnimationMovies4" src="">
+                </div>
+                <div class="grid-item">
+                    <span class="title" id="titlebestAnimationMovies5"></span>
+                    <img id="bestAnimationMovies5" src="">
+                </div>
+                <div class="grid-item">
+                    <span class="title" id="titlebestAnimationMovies6"></span>
+                    <img id="bestAnimationMovies6" src="">
+                </div>
+                <div class="grid-item">
+                    <span class="title" id="titlebestAnimationMovies7"></span>
+                    <img id="bestAnimationMovies7" src="">
+                </div>
+            </div><!-- End of the 7 best movies animation display  -->
+            <hr/>
+            <h2>Action</h2><!-- Start of the 7 best movies action display  -->
+            <div class="grid-container" id="bestActionMovies">
+                <div class="grid-item">
+                    <span class="title" id="titlebestActionMovies1"></span>
+                    <img id="bestActionMovies1" src="">
+                </div>
+                <div class="grid-item">
+                    <span class="title" id="titlebestActionMovies2"></span>
+                    <img id="bestActionMovies2" src="">
+                </div>
+                <div class="grid-item">
+                    <span class="title" id="titlebestActionMovies3"></span>
+                    <img id="bestActionMovies3" src="">
+                </div>
+                <div class="grid-item">
+                    <span class="title" id="titlebestActionMovies4"></span>
+                    <img id="bestActionMovies4" src="">
+                </div>
+                <div class="grid-item">
+                    <span class="title" id="titlebestActionMovies5"></span>
+                    <img id="bestActionMovies5" src="">
+                </div>
+                <div class="grid-item">
+                    <span class="title" id="titlebestActionMovies6"></span>
+                    <img id="bestActionMovies6" src="">
+                </div>
+                <div class="grid-item">
+                    <span class="title" id="titlebestActionMovies7"></span>
+                    <img id="bestActionMovies7" src="">
+                </div>
+            </div><!-- End of the 7 best movies action display  -->
+            <footer class="footer">
+                <div>
+                    <p>JustStreamIt</p>
+                </div>
+            </footer>
+        </div>
+        <script type="text/javascript" src="./scripts/bestMovie1.js"></script>
+        <script type="text/javascript" src="./scripts/filmTop.js"></script>
+        <script type="text/javascript" src="./scripts/topRatedMovies.js"></script>
+        <script type="text/javascript" src="./scripts/bestComedyMovie.js"></script>
+        <script type="text/javascript" src="./scripts/bestDramiticMovie.js"></script>
+        <script type="text/javascript" src="./scripts/bestAnimationMovie.js"></script>
+        <script type="text/javascript" src="./scripts/bestActionMovie.js"></script>
+    </body>
+</html>
