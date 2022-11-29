@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Document</title>
+        <link rel="stylesheet" href="./styles/header.css">
+        <link rel="stylesheet" href="./styles/body.css">
+        <link rel="stylesheet" href="./styles/footer.css">
+        <link rel="stylesheet" href="./styles/modal.css">
+        <link rel="stylesheet" href="./styles/carrousel.css">
+    </head>
+    <body>
+        <div>
+            <header>
+                <div class="logo">
+                    <img src="./logo.png" class="image_logo" alt="logo" >
+                </div>
+                <nav class="nav">
+                    <ul class="menue">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="#categorie">Catégories</a></li>
+                    </ul>
+                </nav>
+            </header>
+                <h1>Meilleur film</h1><!-- Start of the best movie display  -->
+            <div class="bestMovie" id="bestMovie">
+                <a href="#"><img id="bestMovieImg" src="#" alt="best movie"></a>
+                <span class="titleBestMovie" id="bestMovieTitle"></span>
+                <p id="bestMovieDescription"></p>
+                <button class="bestMovieBtn" id="myBtn">Lecture</button>
+            </div>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <div class="parameter">
+                            <img id="bestMovieImg1" src="#" alt="best movie">
+                            <ul>
+                                <li id="title"></li>
+                                <li id="genres"></li>
+                                <li id="date_published"></li>
+                                <li id="rated"></li>
+                                <li id="imdb_score"></li>
+                                <li id="directors"></li>
+                                <li id="actors"></li>
+                                <li id="duration"></li>
+                                <li id="countries"></li>
+                                <li id="worldwide_gross_income"></li>
+                                <li id="description"></li>
+                            </ul>
+                        </div><!-- End of the best movie display  -->
+                    </div>
+                </div>
+                <h2 id="categorie">Films les mieux notés</h2>
+                <div class="slideshow-container"><!-- Start of the 7 top rated movies display  -->
+                    <div class="mySlides fade topRated">
+                        <span class="title"></span>
+                        <img class="topRatedMovieImage" src="#" alt="Top rated movie">
+                    </div>
+                    <div class="mySlides fade topRated">
+                        <span class="title"></span>
+                        <img class="topRatedMovieImage" src="#" alt="Top rated movie">
+                    </div>
+                    <div class="mySlides fade topRated">
+                        <span class="title"></span>
+                        <img class="topRatedMovieImage" src="#" alt="Top rated movie">
+                    </div>
+                    <div class="mySlides fade topRated">
+                        <span class="title"></span>
+                        <img class="topRatedMovieImage" src="#" alt="Top rated movie">
+                    </div>
+                    <a class="prev" onclick="plusSlides(-1)">❮</a>
+                    <a class="next" onclick="plusSlides(1)">❯</a>
+                </div><!-- End of the top rated movies display  -->
+            <h2>Commédie</h2>
+            <div class="slideshow-container" id="bestComedyMovies"><!-- Start of the 7 best movies comedy display  -->
+                <div class="mySlides fade comedy ">
+                    <span class="title"></span>
+                    <img class="bestComedyMovies" src="#" alt="best Comedy Movies">
+                </div>
+                <div class="mySlides fade comedy">
+                    <span class="title"></span>
+                    <img class="bestComedyMovies" src="#" alt="best Comedy Movies">
+                </div>
+                <div class="mySlides fade comedy">
+                    <span class="title"></span>
+                    <img class="bestComedyMovies" src="#" alt="best Comedy Movies">
+                </div>
+                <div class="mySlides fade comedy">
+                    <span class="title"></span>
+                    <img class="topRatedMovieImage" src="#" alt="best Comedy Movies">
+                </div>
+                <a class="prev" onclick="plusSlides1(-1)">❮</a>
+                <a class="next" onclick="plusSlides1(1)">❯</a>
+            </div><!-- End of the 7 best movies comedy display  -->
+            <h2>Dramatique</h2><!-- Start of the 7 best movies dramatic display  -->
+            <div class="slideshow-container">
+                <div class="mySlides fade dramatic ">
+                    <span class="title"></span>
+                    <img class="bestDramaticMoviesImage" src="#" alt="best Dramatic Movies">
+                </div>
+                <div class="mySlides fade dramatic">
+                    <span class="title"></span>
+                    <img class="bestDramaticMoviesImage" src="#" alt="best Dramatic Movies">
+                </div>
+                <div class="mySlides fade dramatic">
+                    <span class="title"></span>
+                    <img class="bestDramaticMoviesImage" src="#" alt="best Dramatic Movies">
+                </div>
+                <div class="mySlides fade dramatic">
+                    <span class="title"></span>
+                    <img class="bestDramaticMoviesImage" src="#" alt="best Dramatic Movies">
+                </div>
+                <a class="prev" onclick="plusSlides2(-1)">❮</a>
+                <a class="next" onclick="plusSlides2(1)">❯</a>
+            </div><!-- End of the 7 best movies dramatic display  -->
+            <h2>Animation</h2><!-- Start of the 7 best movies animation display  -->
+            <div class="slideshow-container" id="bestAnimationMovies">
+                <div class="mySlides fade animation ">
+                    <span class="title"></span>
+                    <img class="bestAnimationMoviesImage" src="#" alt="best Animation Movies">
+                </div>
+                <div class="mySlides fade animation">
+                    <span class="title"></span>
+                    <img class="bestAnimationMoviesImage" src="#" alt="best Animation Movies">
+                </div>
+                <div class="mySlides fade animation">
+                    <span class="title"></span>
+                    <img class="bestAnimationMoviesImage" src="#" alt="best Animation Movies">
+                </div>
+                <div class="mySlides fade animation">
+                    <span class="title"></span>
+                    <img class="bestAnimationMoviesImage" src="#" alt="best Animation Movies">
+                </div>
+                <a class="prev" onclick="plusSlides3(-1)">❮</a>
+                <a class="next" onclick="plusSlides3(1)">❯</a>
+            </div><!-- End of the 7 best movies animation display  -->
+            <h2>Action</h2><!-- Start of the 7 best movies action display  -->
+            <div class="slideshow-container" id="bestActionMovies">
+                <div class="mySlides fade action ">
+                    <span class="title"></span>
+                    <img class="bestActionyMoviesImage" src="#" alt="best Actiony Movies Image">
+                </div>
+                <div class="mySlides fade action">
+                    <span class="title"></span>
+                    <img class="bestActionyMoviesImage" src="#" alt="best Actiony Movies Image">
+                </div>
+                <div class="mySlides fade action">
+                    <span class="title"></span>
+                    <img class="bestActionyMoviesImage" src="#" alt="best Actiony Movies Image">
+                </div>
+                <div class="mySlides fade action">
+                    <span class="title"></span>
+                    <img class="bestActionyMoviesImage" src="#" alt="best Actiony Movies Image">
+                </div>
+                <a class="prev" onclick="plusSlides4(-1)">❮</a>
+                <a class="next" onclick="plusSlides4(1)">❯</a>
+            </div><!-- End of the 7 best movies action display  -->
+            <footer class="footer">
+                <div>
+                    <p>JustStreamIt</p>
+                </div>
+            </footer>
+        </div>
+        <script src="./scripts/bestMovie1.js"></script>
+        <script src="./scripts/filmTop.js"></script>
+        <script src="./scripts/topRatedMovie.js"></script> 
+        <script src="./scripts/bestComedyMovie.js"></script>
+        <script src="./scripts/bestDramiticMovie.js"></script>
+        <script src="./scripts/bestAnimationMovie.js"></script>
+        <script src="./scripts/bestActionMovie.js"></script>
+    </body>
+</html>
