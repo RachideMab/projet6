@@ -1,58 +1,68 @@
-function bestAnimationMovies(){
-    fetch("http://localhost:8000/api/v1/titles/?genre=animation&sort_by=-imdb_score")
-    .then(function(res) {
-        if (res.ok) {
-            return res.json();
-        }
-    })//to get all top rated movies 
-    .then(function(value) {
-        console.log(value.results)
-        for (let i = 0; i < value.results.length; i++) {
-            document.getElementById(`bestAnimationMovies${i + 1}`).src = value.results[i].image_url;
-            document.getElementById(`titlebestAnimationMovies${i + 1}`).innerHTML = value.results[i].title;
-        }
+let slideIndex3 = 0;
 
-        // document.getElementById("bestAnimationMovies1").src = value.results[0].image_url;
-        // var titleDiv1 = document.getElementById('titlebestAnimationMovies1');
-        // titleDiv1.innerHTML = value.results[0].title
-        // document.getElementById("bestAnimationMovies2").src = value.results[1].image_url;
-        // var titleDiv2 = document.getElementById('titlebestAnimationMovies2');
-        // titleDiv2.innerHTML = value.results[1].title
-        // document.getElementById("bestAnimationMovies3").src = value.results[2].image_url;
-        // var titleDiv3 = document.getElementById('titlebestAnimationMovies3');
-        // titleDiv3.innerHTML = value.results[2].title
-        // document.getElementById("bestAnimationMovies4").src = value.results[3].image_url;
-        // var titleDiv4 = document.getElementById('titlebestAnimationMovies4');
-        // titleDiv4.innerHTML = value.results[3].title
-        // document.getElementById("bestAnimationMovies5").src = value.results[4].image_url;
-        // var titleDiv5 = document.getElementById('titlebestAnimationMovies5');
-        // titleDiv5.innerHTML = value.results[4].title
-        
-        // When the user want to get all 7 movies we get them from the second page. 
-        fetch("http://localhost:8000/api/v1/titles/?genre=animation&page=2&sort_by=-imdb_score")
-        .then(function(res) {
-             if (res.ok) {
-                 return res.json();
-             }
-         })
-            .then(function(value) {
-                console.log(value.results)
-                for (let i = 0; i < value.results.length; i++) {
-                    document.getElementById(`bestAnimationMovies${i + 6}`).src = value.results[i].image_url;
-                    document.getElementById(`titlebestAnimationMovies${i + 6}`).innerHTML = value.results[i].title;
-                }
-            //  document.getElementById("bestAnimationMovies6").src = value.results[0].image_url;
-            //  var titleDiv6 = document.getElementById('titlebestAnimationMovies6');
-            //  titleDiv6.innerHTML = value.results[0].title
-            //  document.getElementById("bestAnimationMovies7").src = value.results[1].image_url;
-            //  var titleDiv7 = document.getElementById('titlebestAnimationMovies7');
-            //  titleDiv7.innerHTML = value.results[1].title
-         })
-    })
-    .catch(function(err) {
-
-    });
-
+function plusSlides3(m) {
+  showSlides3(slideIndex3 += m);
 }
 
-bestAnimationMovies()
+const images3 = []
+
+function paginated_fetch3(
+  url,
+  page = 1,
+  previousResponse3 = []
+) {
+  return fetch(url)
+    .then(response3 => response3.json())
+    .then(newResponse3 => {
+      const response3 = [...previousResponse3, ...newResponse3.results];
+
+      if (newResponse3.results.length !== 0) {
+        page++;
+        if (page > 2) {
+            response3.forEach(x => {
+                images3.length < 7 && images3.push(
+                    {
+                        image_url: x.image_url,
+                        title: x.title
+                    }
+                )
+            });
+            showSlides3(slideIndex3)
+        } else {
+            return paginated_fetch3(newResponse3.next, page, response3);
+        }
+      }
+
+      return response3;
+    });
+}
+
+paginated_fetch3('http://localhost:8000/api/v1/titles/?genre=animation&sort_by=-imdb_score')
+
+function showSlides3(m) {
+    // Get all the slides from the DOM
+    let slides3 = document.querySelectorAll(".animation");
+
+    // If the incoming index is larger than the total of the entries set it as 1
+    if (m > images3.length) {slideIndex3 = 1}
+    // If the incoming index is smaller than 1 the index is the last one
+    if (m < 1) {slideIndex3 = images3.length}
+
+    // Container for the images that will be displayed
+    const displayImages3 = []
+
+    // Iterate over all the images and push the correct one in the array
+    for (let i = slideIndex3; i < slideIndex3 + 4; i++) {
+        let pointer3 = i
+        // Handler if the i is over the length
+        if (pointer3 > (images3.length - 1)) {
+           pointer3 = pointer3 - images3.length
+        }
+        displayImages3.push(images3[pointer3])
+    }
+
+    for (i = 0; i < slides3.length; i++) {
+        slides3[i].getElementsByTagName('img')[0].src = displayImages3[i].image_url
+        slides3[i].getElementsByClassName('title')[0].textContent = displayImages3[i].title
+    }
+}

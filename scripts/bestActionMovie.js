@@ -1,57 +1,68 @@
-function bestActionMovies(){
-    fetch("http://localhost:8000/api/v1/titles/?genre=action&sort_by=-imdb_score")
-    .then(function(res) {
-        if (res.ok) {
-            return res.json();
-        }
-    })//to get all top rated movies 
-    .then(function(value) {
-        console.log(value.results)
-        for (let i = 0; i < value.results.length; i++) {
-            document.getElementById(`bestActionMovies${i + 1}`).src = value.results[i].image_url;
-            document.getElementById(`titlebestActionMovies${i + 1}`).innerHTML = value.results[i].title;
-        }
-        // document.getElementById("bestActionMovies1").src = value.results[0].image_url;
-        // var titleDiv1 = document.getElementById('titlebestActionMovies1');
-        // titleDiv1.innerHTML = value.results[0].title
-        // document.getElementById("bestActionMovies2").src = value.results[1].image_url;
-        // var titleDiv2 = document.getElementById('titlebestActionMovies2');
-        // titleDiv2.innerHTML = value.results[1].title
-        // document.getElementById("bestActionMovies3").src = value.results[2].image_url;
-        // var titleDiv3 = document.getElementById('titlebestActionMovies3');
-        // titleDiv3.innerHTML = value.results[2].title
-        // document.getElementById("bestActionMovies4").src = value.results[3].image_url;
-        // var titleDiv4 = document.getElementById('titlebestActionMovies4');
-        // titleDiv4.innerHTML = value.results[3].title
-        // document.getElementById("bestActionMovies5").src = value.results[4].image_url;
-        // var titleDiv5 = document.getElementById('titlebestActionMovies5');
-        // titleDiv5.innerHTML = value.results[4].title
-        
-        // When the user want to get all 7 movies we get them from the second page. 
-        fetch("http://localhost:8000/api/v1/titles/?genre=action&page=2&sort_by=-imdb_score")
-        .then(function(res) {
-             if (res.ok) {
-                 return res.json();
-             }
-         })
-         .then(function(value) {
-             console.log(value.results)
-             for (let i = 0; i < value.results.length; i++) {
-                document.getElementById(`bestActionMovies${i + 6}`).src = value.results[i].image_url;
-                document.getElementById(`titlebestActionMovies${i + 6}`).innerHTML = value.results[i].title;
-            }
-            //  document.getElementById("bestActionMovies6").src = value.results[0].image_url;
-            //  var titleDiv6 = document.getElementById('titlebestActionMovies6');
-            //  titleDiv6.innerHTML = value.results[0].title
-            //  document.getElementById("bestActionMovies7").src = value.results[1].image_url;
-            //  var titleDiv7 = document.getElementById('titlebestActionMovies7');
-            //  titleDiv7.innerHTML = value.results[1].title
-         })
-    })
-    .catch(function(err) {
+let slideIndex4 = 0;
 
-    });
-
+function plusSlides4(m) {
+  showSlides4(slideIndex4 += m);
 }
 
-bestActionMovies()
+const images4 = []
+
+function paginated_fetch4(
+  url,
+  page = 1,
+  previousResponse4 = []
+) {
+  return fetch(url)
+    .then(response4 => response4.json())
+    .then(newResponse4 => {
+      const response4 = [...previousResponse4, ...newResponse4.results];
+
+      if (newResponse4.results.length !== 0) {
+        page++;
+        if (page > 2) {
+            response4.forEach(x => {
+                images4.length < 7 && images4.push(
+                    {
+                        image_url: x.image_url,
+                        title: x.title
+                    }
+                )
+            });
+            showSlides4(slideIndex4)
+        } else {
+            return paginated_fetch4(newResponse4.next, page, response4);
+        }
+      }
+
+      return response4;
+    });
+}
+
+paginated_fetch4('http://localhost:8000/api/v1/titles/?genre=action&sort_by=-imdb_score')
+
+function showSlides4(m) {
+    // Get all the slides from the DOM
+    let slides4 = document.querySelectorAll(".action");
+
+    // If the incoming index is larger than the total of the entries set it as 1
+    if (m > images4.length) {slideIndex4 = 1}
+    // If the incoming index is smaller than 1 the index is the last one
+    if (m < 1) {slideIndex4 = images4.length}
+
+    // Container for the images that will be displayed
+    const displayImages4 = []
+
+    // Iterate over all the images and push the correct one in the array
+    for (let i = slideIndex4; i < slideIndex4 + 4; i++) {
+        let pointer4 = i
+        // Handler if the i is over the length
+        if (pointer4 > (images4.length - 1)) {
+           pointer4 = pointer4 - images4.length
+        }
+        displayImages4.push(images4[pointer4])
+    }
+
+    for (i = 0; i < slides4.length; i++) {
+        slides4[i].getElementsByTagName('img')[0].src = displayImages4[i].image_url
+        slides4[i].getElementsByClassName('title')[0].textContent = displayImages4[i].title
+    }
+}
